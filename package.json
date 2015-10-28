@@ -1,0 +1,22 @@
+{
+  "name": "promisify-io",
+  "description": "Promise based API to IO tasks",
+  "version": "0.0.1",
+  "dependencies": {
+    "es6-promise": "^3.0.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register --recursive"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "chai-as-promised": "^5.1.0",
+    "coffee-script": "^1.10.0",
+    "mocha": "^2.3.3"
+  },
+  "main": "dist/lib.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Innovailable/promisify-io.git"
+  }
+}
