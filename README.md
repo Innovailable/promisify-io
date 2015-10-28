@@ -7,6 +7,16 @@ It can be used to make tests including many input/ouptut operations easier to
 write and maintain. It is not optimized for performance and should not be used
 in production code.
 
+## How to install?
+
+To install just run
+
+    npm install promisify-io
+
+and then use with
+
+    var pio = require("promisify-io");
+
 ## How to use?
 
 When doing tests on sockets or other stream based input/output devices you might
@@ -28,7 +38,7 @@ The method `sendRecv()` even lets you send and receive data in one step.
 Here is a test for an echo server using `mocha`, `chai` and `chai-as-promised`.
 
     describe("Echo", function() {
-      socket = new PromiseClientSocket("localhost", 4321);
+      var socket = new PromiseSocketClient("localhost", 4321);
       it("should receive the same data which was sent", function() {
        return socket.connect().then(function() {
           return socket.sendRecv("hello");
