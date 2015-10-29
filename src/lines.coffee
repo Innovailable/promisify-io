@@ -1,5 +1,27 @@
 {Promisify} = require('./promisify')
 
+###*
+# A virtual device turning providing a line based interface for other devices.
+#
+# The underlying device is expected to read and write `Buffer` objects. This
+# device reads and writes `String`s.
+#
+# @class PromiseLines
+# @extend Promisify
+#
+# @example
+#     var socket = new pio.PromiseSocketClient("localhost", 4321)
+#     var lines = new pio.PromiseLines(socket)
+#
+#     lines.sendRecv("hello").then(function(data) {
+#       console.log(data);
+#     });
+#
+# @constructor
+# @param io {Promisify} The underlying device
+# @param delimiter {String} The string which splits the messages
+# @param encoding {String} Encoding to use
+###
 class exports.PromiseLines extends Promisify
 
   constructor: (@io, @delimiter='\n', @encoding='utf-8') ->
