@@ -1,7 +1,7 @@
 {
   "name": "promisify-io",
   "description": "Promise based API to IO tasks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "es6-promise": "^3.0.2"
   },
