@@ -18,6 +18,9 @@ class exports.Promisify
     @_incoming = []
     @_waiting = []
 
+    @_close_p = new Promise (resolve, reject) =>
+      @_close_d = { resolve: resolve, reject: reject }
+
 
   ###*
   # Receive data from the device
@@ -76,6 +79,10 @@ class exports.Promisify
     return @connect_p
 
 
+  awaitClose: () ->
+    return @_close_p
+
+
   ###*
   # Method to be called by implementation when data is received
   # @method _receiving
@@ -97,6 +104,8 @@ class exports.Promisify
   _closed: () ->
     while @_waiting.length > 0
       @_waiting.shift().reject(new Error("Connection was closed"))
+
+    @_close_d.resolve()
 
 
   ###*
